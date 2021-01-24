@@ -1,0 +1,189 @@
+  /*estilos de CSS
+/*notas:
+no he conseguido hacer que la lista tenga los numeros de diferente color
+a la lista , tempoco he consegido recrear a la prefeccion el grupo de imagenes
+pero las he implementado como yo lo haria en una pagina final
+*/
+/*  1. Cuerpo del documento:
+  • Fondo con la imagen que se muestra en los ejemplos.
+  • Todos los párrafos con texto justificado.*/
+  body{
+      background-image:url(./img/fondo.jpg);
+     }
+     p{
+         text-align: justify;
+     }
+
+  /*  2. Hipervínculos:
+  • Sin subrayado
+  • Color de texto #F6D155
+  • Que aparezcan subrayados cuando el ratón pase por encima.  */
+  footer>p{
+    text-align: center;
+  }
+  a{
+      color: #F6D155;
+      text-decoration: none;
+  }
+  a:hover{
+      text-decoration:underline;
+  }
+
+  /*3. Cabecera de la página:
+  • Color de fondo #223A5E.
+  • Borde inferior sólido, color gris, 5 pixeles.
+  • Texto centrado.
+  • Fuente de tamaño de 1.8 em, versalita, negrita.
+  • Tamaño de la primera letra del texto a 1.5 em.  */
+  header{
+      background-color:#223A5E;
+      border-bottom: 5px solid gray;
+      text-align: center;
+      font-size: 1.8em;
+      font-family:versalita;
+      font-weight: bold;
+      margin-bottom: 10px;/*para que la estructura me saliese como en la foto del ejemplo*/
+      color: white;
+  }
+
+  header::first-letter {
+      font-size: 1.5em;
+  }
+
+  /*4. Panel izquierdo de navegación:
+  • Anchura de 15%.(hecho desde el grid)
+  • Color de fondo #223A5E.
+  • Color del texto blanco.
+  • Márgenes superior e inferior de 2 em.*/
+  nav{
+
+      background-color:#223A5E;
+      color: white;
+      padding-top: 2em ;
+      padding-bottom: 2em;
+  }
+
+  /*
+  5. Artículo principal de la página:
+  • Márgenes laterales de 20% a la izquierda y 15% a la derecha.
+  • Primer título (p.ej. “Introducción”) color del texto marrón con un borde fino en marrón.
+  • Segundo título (p.ej. “Pabellones destacados”) color del texto en marrón en cursiva.*/
+  main{
+      padding-left: 20%; /*segun la imagenen de referncia senti que estaban intercambiados o eso veo yo */
+      padding-right: 15%;
+
+  }
+  h1{
+      color:brown;
+      border-bottom-style: solid;
+      border-width: thin;
+  }
+  h3{
+      color:brown;
+      font-style:italic;
+  }
+  /* 6. Tablas:
+  • Tablas centradas.
+  • Espaciado con respecto al borde de 10 pixeles.
+  • Sin línea de borde.
+  • Margen interno de celdas de 10 pixeles.
+  • Primera fila con color de letra blanco y fondo #223A5E.
+  • Segunda y posteriores filas con letra en color negro.
+  • Filas pares con color de fondo #D49F75.
+  • Filas impares con color de fondo #C48F65.*/
+  table,th,td{
+
+      text-align: center;
+      border-collapse: collapse;
+      padding: 10px;
+      margin-left: 20%;
+  }
+  th{
+      color: white;
+      background-color:#223A5E ;
+  }
+  tr:nth-child(even){
+      background-color:#D49F75 ;
+  }
+  tr:nth-child(odd){
+      background-color:#C48F65;
+  }
+  /*  7. Imágenes:
+  • Borde sólido de 3 pixeles de color gris.
+  • Imágenes centradas y con leyenda.
+  • Texto de leyenda en cursiva y con una separación con la imagen de 10 pixeles.*/
+  .imagen{
+      text-align: center;
+      font-style: italic;
+  }
+  .img1{
+      border:3px solid #555;
+  }
+
+
+  /*  8. Bloque imágenes
+  • Margen superior a 2 em.
+  • En cada imagen margen izquierdo de un 10%.
+  • Tamaño de la figura un 20%.
+  • Tamaño de la imagen al 100%*/
+  #images{
+      text-align:center;
+      margin:50px auto;
+
+  }
+  #images a{
+
+      display:inline-block;
+      text-decoration:none;
+      color:black;
+      margin-left: 5%;
+   }
+
+  /*9. Pie de la página:
+  • Borde superior sólido gris de 5 pixeles.
+  • Márgenes internos superior e inferior de 1 em.
+  • Texto centrado.
+  • Color de fondo #223A5E.
+  • Color del texto blanco.  */
+  footer{
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border-top: 5px solid gray;
+      background-color:#223A5E;
+      color: white;
+  }
+/*estilo de grid para la estructura de la pagina */
+ .grid{
+    display: grid;
+    grid-template-columns: 15% 85%;
+ }
+ .grid>nav{
+     grid-column: 1;
+ }
+ .grid>main{
+     grid-column:2;
+     padding-left: 5%;
+ }
+/*media qwerries para detectar el ancho de la pagina y cambiar el diseño acorde*/
+@media screen and (max-width: 1015px) {
+    .grid{
+        display: grid;
+        grid-template-columns: 15% 85%;
+     }
+     .grid>nav{
+         grid-column: 1/span2;/*cambio del nav a barra superior*/
+     }
+     .grid>main{
+         grid-column:1/span2;/*cabio del main para que no ocurran conflictos*/
+         padding-left: 0%;/*elimino el padding */
+     }
+     main{
+        padding-left: 0%;/*elimino los margenes creados para que se parezca mas a la pagina de referencia*/
+        padding-right: 0%;
+
+    }
+    table{
+        margin-left:0% ;/*elimino el espaciado que di para cuadrar la tabla porque no me funcionaba el text-align ni item-aling-self*/
+    }
+
+}
